@@ -69,6 +69,91 @@
             font-size: 1.3em;
         }
 
+        .featured-panel {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 40px rgba(238, 90, 36, 0.4);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 15px 40px rgba(238, 90, 36, 0.4); }
+            to { box-shadow: 0 20px 60px rgba(238, 90, 36, 0.6), 0 0 30px rgba(255, 107, 107, 0.3); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .featured-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .featured-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .featured-panel h2 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .featured-panel p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .featured-panel .emoji {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .btn-featured {
+            display: inline-block;
+            background: white;
+            color: #ee5a24;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-featured:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: #fff5f0;
+        }
+
         .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -387,6 +472,20 @@
                 <div class="stat">⭐ Level: <span id="playerLevel">1</span></div>
             </div>
         </header>
+
+        <!-- Featured Math Master Panel -->
+        <div class="featured-panel">
+            <div class="featured-content">
+                <div class="featured-text">
+                    <div class="emoji">🚀</div>
+                    <h2>Math Master</h2>
+                    <p>Take your math skills to the next level with advanced challenges and personalized learning!</p>
+                </div>
+                <a href="https://bbsisk.pythonanywhere.com" class="btn-featured" target="_blank">
+                    Launch Math Master →
+                </a>
+            </div>
+        </div>
 
         <div class="games-grid">
             <!-- Speed Math Game -->
